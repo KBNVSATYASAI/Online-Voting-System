@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}UDAY{% endblock %}</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <style>
+        .fixed-nav {
+            position: fixed;
+            width: 100%;
+            height: 50px;
+            top: 0;
+            background-color:#007bff;
+        }
+    </style>
+</head>
+<body>
+<div class="fixed-nav ">
+    <ul class="nav">
+        <li class="nav-item">
+           <a class="nav-link link-light" href="/home">Homepage</a>
+        </li>
+        <li class="nav-item">
+           <a class="nav-link link-light" href="/register">Register</a>
+        </li>
+         <li class="nav-item">
+           <a class="nav-link link-light" href="/login">Login</a>
+        </li>
+         <li class="nav-item">
+           <a class="nav-link link-light" href="/votehere">votehere</a>
+        </li>
+    </ul>
+</div>
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>

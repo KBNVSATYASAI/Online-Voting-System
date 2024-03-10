@@ -1,0 +1,82 @@
+{%extends 'navbar.html'%}
+<html lang="en">
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    color: #333;
+}
+
+.team-section {
+    text-align: center;
+    padding: 50px 10px;
+}
+
+.team-section h1 {
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    padding: 20px;
+    width: 300px;
+}
+
+.team-member img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.team-member h3 {
+    margin: 0;
+    color: #007bff;
+}
+
+.team-member p {
+    margin: 10px 0 0;
+    color: #666;
+}
+    </style>
+</head>
+<body>
+    <section class="team-section">
+        <h1>Meet Our Team</h1>
+             <div class="team-member" >
+            <img src="C:\Users\udayk\Downloads\uday.jpg" alt="Member 1">
+            <h3>UDAY KUMAR PARSA</h3>
+                <p>CEO & Founder</p>
+        </div>
+            <div class="team-member" >
+            <img src="C:\Users\udayk\Downloads\shahul.jpg" alt="Member 2">
+            <h3>SHAIK FYROZ SHAHUL</h3>
+                <p>CEO & Founder</p>
+        </div>
+            <div class="team-member" >
+            <img src="C:\Users\udayk\Downloads\balu.jpg" alt="Member 3">
+            <h3>KARNA BALA NAGA VENKATA SATYA SAI</h3>
+                <p>CEO & Founder</p>
+        </div>
+        </div>
+    </section>
+</body>
+{%endblock%}
+</html>

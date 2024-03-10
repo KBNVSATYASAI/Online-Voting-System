@@ -1,0 +1,84 @@
+{% extends 'navbar.html' %}
+{% block content %}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Voters</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .voter-table-container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .voter-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .voter-table th, .voter-table td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        .voter-table th {
+            background-color: #007bff; /* Changed to blue */
+            color: white;
+        }
+        .voter-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .voter-table tr:hover {
+            background-color: #ddd;
+        }
+        .edit-btn, .delete-btn {
+            text-decoration: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .edit-btn {
+            background-color: #f0ad4e; /* Bootstrap warning color */
+        }
+        .delete-btn {
+            background-color: #d9534f; /* Bootstrap danger color */
+        }
+    </style>
+</head>
+<body>
+    <div class="voter-table-container">
+        <h2>List of Voters</h2>
+        <table class="voter-table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Epic Number</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for voter in voters %}
+                    <tr>
+                        <td>{{ voter.username }}</td>
+                        <td>{{ voter.epic_number }}</td>
+                        <td>
+                            <a href="{% url 'edit_voter' voter.id %}" class="edit-btn">Edit</a>
+                            <a href="{% url 'delete_voter' voter.id %}" class="delete-btn" onclick="return confirm('Are you sure?');">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+{% endblock %}

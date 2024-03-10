@@ -1,0 +1,112 @@
+{% extends 'nav.html' %}
+{% block content %}
+<style>
+    .selected {
+        border: 2px solid #007bff; /* Highlight selected candidate with a blue border */
+        background-color: #e7f0fe; /* Light blue background for the selected candidate */
+    }
+
+    body {
+        background-image: url('https://img.freepik.com/premium-photo/vote-democratic-elections-referendum-make-right-choice_355067-2536.jpg?size=626&ext=jpg&ga=GA1.1.2076430500.1706848681&semt=ais'); /* Update with the actual URL of your background image */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+    .voting-container {
+        max-width: 960px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    .candidate {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 30%;
+        background-color: #f2f2f2;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+        cursor: pointer; /* Indicates the entire candidate div is clickable */
+    }
+    .candidate:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .candidate img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        object-fit: cover;
+    }
+    .voting-form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    input[type=submit] {
+        font-size: 16px;
+        padding: 10px 30px;
+        margin-top: 20px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        background-color: #6a11cb;
+        color: #FFF;
+        transition: background-color 0.3s;
+    }
+    input[type=submit]:hover {
+        background-color: #2575fc;
+    }
+     .selected {
+        border: 2px solid #007bff; /* Blue border for the selected candidate */
+        background-color: #e7f0fe; /* Optional: Light blue background for a softer highlight */
+    }
+</style>
+
+<div class="voting-container">
+    <h2>Vote for Your Favorite Candidate</h2>
+    <form id="votingForm" action="#submit-vote" method="POST" class="voting-form">
+        {% csrf_token %}
+        <input type="hidden" name="candidate" id="selectedCandidate" value="">
+        <div class="candidate" onclick="chooseCandidate('Candidate 1',this)">
+            <img src="https://wallpaperbat.com/img/865158-pawan-kalyan-latest-hd-image-2259-pawankalyan-pavan-kalyan-photos-hd-downlod-new-image-hd-new-photos-hd-hd-cover-photos.jpg" alt="Candidate 1">
+            <label>Candidate 1</label>
+        </div>
+        <div class="candidate" onclick="chooseCandidate('Candidate 2',this)">
+            <img src="https://media.gettyimages.com/id/941977380/photo/new-delhi-india-andhra-pradesh-chief-minister-n-chandrababu-naidu-during-his-press-confrence.jpg?s=612x612&w=0&k=20&c=OgcAzsq5Sj-1QZl3kLHZRMudoUqLP6u31ZwQ5NjL0jg=" alt="Candidate 2">
+            <label>Candidate 2</label>
+        </div>
+        <div class="candidate" onclick="chooseCandidate('Candidate 3',this)">
+            <img src="https://jaganannaconnects.com/gallery/ys-jagan/uploads/1696241761_15.jpg" alt="Candidate 3">
+            <label>Candidate 3</label>
+        </div>
+        <!-- Adding submit button for explicit vote submission -->
+        <input type="submit" value="Submit Vote">
+    </form>
+</div>
+
+<script>
+   function selectCandidate(candidateValue, element) {
+        // Set the hidden input value
+        document.getElementById('selectedCandidate').value = candidateValue;
+
+        // Remove 'selected' class from all candidates
+        var candidates = document.getElementsByClassName('candidate');
+        for (var i = 0; i < candidates.length; i++) {
+            candidates[i].classList.remove('selected');
+        }
+
+        // Add 'selected' class to the clicked candidate
+        element.classList.add('selected');
+    }
+</script>
+{% endblock %}
