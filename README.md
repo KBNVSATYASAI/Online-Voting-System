@@ -1,3 +1,6 @@
+
+The Online Voting System is a web-based application designed to enable secure and convenient voting in elections, polls, and other voting events. It serves as a user-friendly platform where eligible voters can cast their votes electronically, ensuring accuracy, transparency, and accessibility in the voting process. The system aims to simplify voting procedures, reduce voting-related errors, and encourage higher voter participation.
+
 Creating an online voting system using Python web development with Django involves several steps. Below is a summarized overview of the process:
 
 Setup Django Project:
